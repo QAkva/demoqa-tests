@@ -3,7 +3,6 @@ import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import java.io.File;
 
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
@@ -34,7 +33,7 @@ public class SubmissionFormTests {
         $(byText("1")).click();
         $("#subjectsInput").setValue("Computer Science").pressEnter();
         $(byText("Reading")).click();
-        $("#uploadPicture").uploadFile(new File("src/hqdefault.jpg"));
+        $("#uploadPicture").uploadFromClasspath("hqdefault.jpg");
         $("#currentAddress").setValue("Baker street 221b");
         $("#state").click();
         $(byText("Uttar Pradesh")).click();
