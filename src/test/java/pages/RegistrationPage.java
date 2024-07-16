@@ -25,7 +25,6 @@ public class RegistrationPage {
             submitButton = $("#submit");
 
     CalendarComponent calendarComponent = new CalendarComponent();
-    ResultTableComponent resultTableComponent = new ResultTableComponent();
 
     public RegistrationPage openPage(){
         open("/automation-practice-form");
