@@ -1,11 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.SelenideElement;
-import pages.Components.CalendarComponent;
-import pages.Components.ResultTableComponent;
+import pages.сomponents.CalendarComponent;
+import pages.сomponents.ResultTableComponent;
+
+import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class RegistrationPage {
     private final SelenideElement
@@ -93,6 +94,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage selectState(String value){
+        $(stateSelection).scrollTo().shouldBe(visible);
         stateSelection.click();
         stateSelection.$(byText(value)).click();
 
@@ -100,6 +102,7 @@ public class RegistrationPage {
     }
 
     public RegistrationPage selectCity(String value){
+        $(citySelection).scrollTo().shouldBe(visible);
         citySelection.click();
         citySelection.$(byText(value)).click();
 
@@ -107,25 +110,8 @@ public class RegistrationPage {
     }
 
     public void submitForm(){
+        $(submitButton).scrollTo().shouldBe(visible);
         submitButton.click();
-    }
-
-    public RegistrationPage checkTableTitle(String value){
-        resultTableComponent.checkTitle(value);
-
-        return this;
-    }
-
-    public RegistrationPage checkTableValue(String value){
-        resultTableComponent.checkEntry(value);
-
-        return this;
-    }
-
-    public RegistrationPage checkTableNotExists(){
-        resultTableComponent.checkTable();
-
-        return this;
     }
 }
 
